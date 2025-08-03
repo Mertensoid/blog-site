@@ -5,6 +5,15 @@ templ Header() {
     @HeaderStyle()
     <div class="header">
         @Menu()
+        @Categories([]Category{
+            Category{Name: "Еда", ImageSource: "/public/images/search.svg"},
+            Category{Name: "Животные", ImageSource: "/public/images/search.svg"},
+            Category{Name: "Машины", ImageSource: "/public/images/search.svg"},
+            Category{Name: "Спорт", ImageSource: "/public/images/search.svg"},
+            Category{Name: "Музыка", ImageSource: "/public/images/search.svg"},
+            Category{Name: "Технологии", ImageSource: "/public/images/search.svg"},
+            Category{Name: "Прочее", ImageSource: "/public/images/search.svg"},
+        })
     </div>
 }
 

@@ -1,8 +1,17 @@
 package layout
 
-templ Categories() {
+import "blog-site/views/components"
+
+type Category struct {
+    Name string
+    ImageSource string
+}
+
+templ Categories(cats []Category) {
     <div class="categories">
-        <p>Категории</p>
+        for _, val := range cats {
+            @components.Category(val.Name, val.ImageSource)
+        }
     </div>
 }
 

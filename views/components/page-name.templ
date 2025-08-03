@@ -1,0 +1,20 @@
+package components
+
+templ PageName(text string) {
+    @PageNameStyle()
+    <div class="page-name">
+        <h1>{text}</h1>
+    </div>
+}
+
+templ PageNameStyle() {
+    <style>
+        .page-name {
+            text-align: center;
+            color: red;
+            background-color: var(--color-white);
+            padding: 10px;
+            margin: 0px;
+        }
+    </style>
+}
