@@ -50,7 +50,7 @@ func Categories(cats []Category) templ.Component {
 				return templ_7745c5c3_Err
 			}
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 2, "</div>")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 2, "<img class=\"\" src=\"\"></div>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -79,7 +79,7 @@ func CategoriesStyle() templ.Component {
 			templ_7745c5c3_Var2 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 3, "<style>\n        .categories {\n            height: 40px;\n            padding-left: 20px;\n            padding-right: 20px;\n            color: var(--color-white);\n            display: flex;\n            flex-direction: row;\n            justify-content: space-between;\n        }\n    </style>")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 3, "<style>\n        .categories {\n            height: 40px;\n            padding-left: 5px;\n            padding-right: 5px;\n            color: var(--color-white);\n            display: flex;\n            flex-direction: row;\n            justify-content: space-between;\n            background-color: rgb(245, 245, 245);\n            border-radius: 5px;\n        }\n        .arrow {\n\n        }\n    </style>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

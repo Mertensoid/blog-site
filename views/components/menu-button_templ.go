@@ -75,7 +75,7 @@ func MenuButtonStyle() templ.Component {
 			templ_7745c5c3_Var3 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 3, "<style>\n        .menu-button {\n            display: flex;\n            align-items: center;\n            justify-content: center;\n            font-size: 16px;\n            background-color: var(--color-white);\n            color: black;\n            padding: 20px;\n        }\n        .menu-button:hover {\n            background-color: lightgray;\n            cursor: pointer;\n        }\n    </style>")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 3, "<style>\n        .menu-button {\n            display: flex;\n            align-items: center;\n            justify-content: center;\n            font-size: 16px;\n            background-color: var(--color-white);\n            color: black;\n            padding: 10px;\n            margin: 10px;\n            border-radius: 10px;\n        }\n        .menu-button:hover {\n            background-color: var(--color-lightgray);\n            cursor: pointer;\n        }\n    </style>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

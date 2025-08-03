@@ -13,6 +13,7 @@ templ Categories(cats []Category) {
         for _, val := range cats {
             @components.Category(val.Name)
         }
+        <img class="" src="">
     </div>
 }
 
@@ -20,12 +21,17 @@ templ CategoriesStyle() {
     <style>
         .categories {
             height: 40px;
-            padding-left: 20px;
-            padding-right: 20px;
+            padding-left: 5px;
+            padding-right: 5px;
             color: var(--color-white);
             display: flex;
             flex-direction: row;
             justify-content: space-between;
+            background-color: rgb(245, 245, 245);
+            border-radius: 5px;
+        }
+        .arrow {
+
         }
     </style>
 }
