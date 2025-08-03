@@ -8,9 +8,10 @@ type Category struct {
 }
 
 templ Categories(cats []Category) {
+    @CategoriesStyle()
     <div class="categories">
         for _, val := range cats {
-            @components.Category(val.Name, val.ImageSource)
+            @components.Category(val.Name)
         }
     </div>
 }
@@ -19,8 +20,12 @@ templ CategoriesStyle() {
     <style>
         .categories {
             height: 40px;
-            text-align: center;
+            padding-left: 20px;
+            padding-right: 20px;
             color: var(--color-white);
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
         }
     </style>
 }

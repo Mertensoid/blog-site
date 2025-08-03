@@ -1,12 +1,11 @@
 package layout
 
-
 templ Header() {
     @HeaderStyle()
     <div class="header">
         @Menu()
         @Categories([]Category{
-            Category{Name: "Еда", ImageSource: "/public/images/search.svg"},
+            Category{Name: "Еда", ImageSource: "/public/images/badge.svg"},
             Category{Name: "Животные", ImageSource: "/public/images/search.svg"},
             Category{Name: "Машины", ImageSource: "/public/images/search.svg"},
             Category{Name: "Спорт", ImageSource: "/public/images/search.svg"},
@@ -21,11 +20,9 @@ templ HeaderStyle() {
     <style>
         .header {
             height: 100px;
-            background-color: #2b2b2b;
+            background-color: #ffffff;
             margin: 0px;
             padding: 5px;
-            display: flex;
-            flex-direction: column;
         }
     </style>
 }
