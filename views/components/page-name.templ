@@ -3,17 +3,20 @@ package components
 templ PageName(text string) {
     @PageNameStyle()
     <div class="page-name">
-        <h1>{text}</h1>
+        {text}
     </div>
 }
 
 templ PageNameStyle() {
     <style>
         .page-name {
-            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
             color: red;
             background-color: var(--color-white);
-            padding: 10px;
+            padding: 20px;
             margin: 0px;
         }
     </style>

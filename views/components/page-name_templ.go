@@ -75,7 +75,7 @@ func PageNameStyle() templ.Component {
 			templ_7745c5c3_Var3 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 3, "<style>\n        .page-name {\n            text-align: center;\n            color: red;\n            background-color: var(--color-white);\n            padding: 10px;\n            margin: 0px;\n        }\n    </style>")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 3, "<style>\n        .page-name {\n            display: flex;\n            align-items: center;\n            justify-content: center;\n            font-size: 16px;\n            color: red;\n            background-color: var(--color-white);\n            padding: 20px;\n            margin: 0px;\n        }\n    </style>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

@@ -1,18 +1,33 @@
 package layout
 
+import "blog-site/views/components"
+
 templ Menu() {
     @MenuStyle()
     <div class="menu">
-        { children... }
+        <div class="menu-part">
+            @components.PageName("Новости")
+            @components.MenuButton("Категории")
+            @components.MenuButton("Контакты")
+        </div>
+        <div>
+            @components.Search()
+            @components.MenuButton("Вход")
+            @components.MenuButton("Регистрация")
+        </div>
     </div>
 }
 
 templ MenuStyle() {
     <style>
         .menu {
-            height: 40px;
-            text-align: center;
-            color: var(--color-white);
+            height: 60px;
+            display: flex;
+            justify-content: space-between;
+        }
+        .menu-part {
+            padding-left: 20px;
+            padding-right: 20px;
         }
     </style>
 }
