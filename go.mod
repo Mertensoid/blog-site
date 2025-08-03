@@ -3,6 +3,7 @@ module blog-site
 go 1.24.1
 
 require (
+	github.com/a-h/templ v0.3.924 // indirect
 	github.com/andybalholm/brotli v1.2.0 // indirect
 	github.com/gofiber/contrib/fiberzerolog v1.0.3 // indirect
 	github.com/gofiber/fiber/v2 v2.52.9 // indirect
