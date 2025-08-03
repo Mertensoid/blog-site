@@ -2,6 +2,7 @@ package main
 
 import (
 	"blog-site/config"
+	"blog-site/internal/home"
 	"blog-site/package/logger"
 
 	"github.com/gofiber/contrib/fiberzerolog"
@@ -14,12 +15,15 @@ func main() {
 	loggerConf := config.NewLogConfig()
 
 	logger := logger.NewLogger(loggerConf)
+	logger.Info().Msg(dbConf.Url)
 
 	app := fiber.New()
 	app.Use(fiberzerolog.New(fiberzerolog.Config{
 		Logger: logger,
 	}))
+	app.Static("/public", "./public")
 
-	logger.Info().Msg(dbConf.Url)
+	home.NewHandler(app, logger)
 
+	app.Listen(":5001")
 }
