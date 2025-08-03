@@ -1,0 +1,39 @@
+package layout
+
+import "blog-site/views/components"
+
+type Category struct {
+    Name string
+    ImageSource string
+}
+
+templ Categories(cats []Category) {
+    @CategoriesStyle()
+    <div class="categories">
+        for _, val := range cats {
+            @components.Category(val.Name)
+        }
+
+        <img class="arrow" src="/public/images/arrow.svg">
+    </div>
+}
+
+templ CategoriesStyle() {
+    <style>
+        .categories {
+            height: 40px;
+            padding-left: 5px;
+            padding-right: 5px;
+            color: var(--color-white);
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            background-color: var(--color-light);
+            border-radius: 5px;
+        }
+        .arrow {
+            padding: 5px 5px 5px 40px;
+        }
+    </style>
+}
+

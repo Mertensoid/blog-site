@@ -1,0 +1,32 @@
+package components
+
+templ Search() {
+    @SearchStyle()
+    <div class="search">
+        <input class="input" placeholder="Найти новость" />
+        <img class="search-button" src="/public/images/search.svg"/>
+    </div>
+    
+}
+
+templ SearchStyle() {
+    <style>
+        .search {
+            padding: 10px 5px;
+            width: 200px;
+            background-color: var(--color-light);
+            display: flex;
+            border-radius: 5px;
+        }
+        .input {
+            width: auto;
+            height: auto;
+            padding: 0px 5px;
+            background-color: var(--color-light);
+            border: 0px;
+        }
+        .search-button {
+            padding: 0px 5px;
+        }
+    </style>
+}

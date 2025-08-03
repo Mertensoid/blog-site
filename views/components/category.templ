@@ -1,0 +1,24 @@
+package components
+
+templ Category(text string) {
+    @CategoryStyle()
+    <div class="category">
+        #{text}
+    </div>
+}
+
+templ CategoryStyle() {
+    <style>
+        .category {
+            background-image: url("/public/images/cat2.svg");
+            width: 150px;
+            font-size: 12px;
+            font-weight: bold;
+            padding: 5px;
+            margin: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
+}
