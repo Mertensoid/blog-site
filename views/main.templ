@@ -1,0 +1,14 @@
+package views
+
+import "blog-site/views/layout"
+
+templ Main() {
+    @layout.Layout(layout.LayoutProps{
+        Title: "Title",
+        MetaDescription: "Meta description",
+    }) {
+        <main>
+
+        </main>
+    }
+}
