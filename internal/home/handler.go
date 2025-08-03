@@ -2,6 +2,7 @@ package home
 
 import (
 	"blog-site/package/templadapter"
+	"blog-site/views"
 
 	"github.com/gofiber/fiber/v2"
 	"github.com/rs/zerolog"
