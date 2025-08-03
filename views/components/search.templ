@@ -3,8 +3,8 @@ package components
 templ Search() {
     @SearchStyle()
     <div class="search">
-        <input placeholder="Найти новость" />
-        <img src="/public/images/search.svg"/>
+        <input class="input" placeholder="Найти новость" />
+        <img class="search-button" src="/public/images/search.svg"/>
     </div>
     
 }
@@ -12,13 +12,21 @@ templ Search() {
 templ SearchStyle() {
     <style>
         .search {
-            justify-content: space-between;
-            padding: 10px;
+            padding: 10px 5px;
             width: 200px;
-            background-color: lightgray;
+            background-color: var(--color-light);
+            display: flex;
+            border-radius: 5px;
         }
-        .textarea {
+        .input {
             width: auto;
+            height: auto;
+            padding: 0px 5px;
+            background-color: var(--color-light);
+            border: 0px;
+        }
+        .search-button {
+            padding: 0px 5px;
         }
     </style>
 }

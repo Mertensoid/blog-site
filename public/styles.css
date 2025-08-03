@@ -1,8 +1,7 @@
 :root {
     --color-white: #FFFFFF;
-    --color-lightgray: #f0f0f0;
+    --color-light: #f0f0f0;
 }
-
 
 body {
     margin: 0;

@@ -33,7 +33,7 @@ func Search() templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<div class=\"search\"><input placeholder=\"Найти новость\"> <img src=\"/public/images/search.svg\"></div>")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<div class=\"search\"><input class=\"input\" placeholder=\"Найти новость\"> <img class=\"search-button\" src=\"/public/images/search.svg\"></div>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -62,7 +62,7 @@ func SearchStyle() templ.Component {
 			templ_7745c5c3_Var2 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 2, "<style>\n        .search {\n            justify-content: space-between;\n            padding: 10px;\n            width: 200px;\n            background-color: lightgray;\n        }\n        .textarea {\n            width: auto;\n        }\n    </style>")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 2, "<style>\n        .search {\n            padding: 10px 5px;\n            width: 200px;\n            background-color: var(--color-light);\n            display: flex;\n            border-radius: 5px;\n        }\n        .input {\n            width: auto;\n            height: auto;\n            padding: 0px 5px;\n            background-color: var(--color-light);\n            border: 0px;\n        }\n        .search-button {\n            padding: 0px 5px;\n        }\n    </style>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
