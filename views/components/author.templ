@@ -3,13 +3,37 @@ package components
 templ Author(author User, date string) {
     @AuthorStyle()
     <div class="author">
+        <img src={author.PictureURL} class="author-image"/>
+        <div>
+            <p class="author-name">{author.Name}</p>
+            <p class="card-date">{date}</p>
+        </div>
     </div>
 }
 
 templ AuthorStyle() {
     <style>
         .author {
-
+            height: 70px;
+            display: flex;
+            margin: 10px 5px;
+            background-color: var(--color-light);
+            border-radius: 10px;
+        }
+        .author-image {
+            width: 50px;
+            height: 50px;
+            object-fit: cover;
+            border-radius: 25px;
+            margin: 10px;
+        }
+        .author-name {
+            font-size: 14px;
+            font-weight: bold;
+        }
+        .card-date {
+            font-size: 12px;
+            color: gray;
         }
     </style>
 }

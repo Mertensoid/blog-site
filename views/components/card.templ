@@ -18,7 +18,7 @@ templ Card(new NewsLetter) {
     <div class="card">
         <img src={new.PictureURL} class="card-image" />
         <div class="card-title">{new.Title}</div>
-        <p class="card-test">{new.Text}</p>
+        <p class="card-text">{new.Text}</p>
         @Author(new.Author, new.Date)
     </div>
 }
@@ -40,15 +40,17 @@ templ CardStyle() {
         .card-title {
             font-size: 18px;
             font-weight: bold;
+            margin: 10px 0px;
         }
         .card-text {
             font-size: 14px;
             color: gray;
             display: -webkit-box;
-            -webkit-line-clamp: 5;    /* Количество строк */
+            -webkit-line-clamp: 3; /* Ограничение в 3 строки */
             -webkit-box-orient: vertical;
             overflow: hidden;
             text-overflow: ellipsis;
+            margin: 0; /* Убираем стандартные отступы у <p> */
         }
     </style>
 }

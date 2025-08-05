@@ -72,7 +72,7 @@ func Card(new NewsLetter) templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 3, "</div><p class=\"card-test\">")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 3, "</div><p class=\"card-text\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -122,7 +122,7 @@ func CardStyle() templ.Component {
 			templ_7745c5c3_Var5 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 6, "<style>\n        .card {\n            width: 300px;\n            height: 300px;\n            border-radius: 10px;\n            padding: 20px;\n        }\n        .card-image {\n            width: 100%;\n            height: 100px;\n            object-fit: cover;\n            border-radius: 10px;\n        }\n        .card-title {\n            font-size: 18px;\n            font-weight: bold;\n        }\n        .card-text {\n            font-size: 14px;\n            color: gray;\n            display: -webkit-box;\n            -webkit-line-clamp: 5;    /* Количество строк */\n            -webkit-box-orient: vertical;\n            overflow: hidden;\n            text-overflow: ellipsis;\n        }\n    </style>")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 6, "<style>\n        .card {\n            width: 300px;\n            height: 300px;\n            border-radius: 10px;\n            padding: 20px;\n        }\n        .card-image {\n            width: 100%;\n            height: 100px;\n            object-fit: cover;\n            border-radius: 10px;\n        }\n        .card-title {\n            font-size: 18px;\n            font-weight: bold;\n            margin: 10px 0px;\n        }\n        .card-text {\n            font-size: 14px;\n            color: gray;\n            display: -webkit-box;\n            -webkit-line-clamp: 3; /* Ограничение в 3 строки */\n            -webkit-box-orient: vertical;\n            overflow: hidden;\n            text-overflow: ellipsis;\n            margin: 0; /* Убираем стандартные отступы у <p> */\n        }\n    </style>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
