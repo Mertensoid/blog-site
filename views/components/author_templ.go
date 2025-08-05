@@ -101,7 +101,7 @@ func AuthorStyle() templ.Component {
 			templ_7745c5c3_Var5 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 5, "<style>\n        .author {\n            height: 70px;\n            display: flex;\n            margin: 10px 5px;\n            background-color: var(--color-light);\n            border-radius: 10px;\n        }\n        .author-image {\n            width: 50px;\n            height: 50px;\n            object-fit: cover;\n            border-radius: 25px;\n            margin: 10px;\n        }\n        .author-name {\n            font-size: 14px;\n            font-weight: bold;\n        }\n        .card-date {\n            font-size: 12px;\n            color: gray;\n        }\n    </style>")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 5, "<style>\n        .author {\n            height: 70px;\n            display: flex;\n            margin-top: 10px;\n            background-color: var(--color-light);\n            border-radius: 10px;\n        }\n        .author-image {\n            width: 50px;\n            height: 50px;\n            object-fit: cover;\n            border-radius: 25px;\n            margin: 10px;\n        }\n        .author-name {\n            font-size: 14px;\n            font-weight: bold;\n        }\n        .card-date {\n            font-size: 12px;\n            color: gray;\n        }\n    </style>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

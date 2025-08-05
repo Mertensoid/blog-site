@@ -99,7 +99,7 @@ func ContentStyle() templ.Component {
 			templ_7745c5c3_Var2 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 3, "<style>\n        .content {\n            display: grid;\n            grid-template-columns: 25% 25% 25% 25%;\n            grid-auto-flow: row;\n        }\n    </style>")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 3, "<style>\n        .content {\n            display: grid;\n            grid-template-columns: 25% 25% 25% 25%;\n            grid-auto-flow: dense;\n            justify-items: center;\n        }\n    </style>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

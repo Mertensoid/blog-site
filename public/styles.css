@@ -1,6 +1,8 @@
 :root {
     --color-white: #FFFFFF;
     --color-light: #f0f0f0;
+    --color-superlight: #fafafa;
+    --color-dark: #222;
 }
 
 body {
