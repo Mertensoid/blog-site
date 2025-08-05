@@ -10,7 +10,7 @@
             "request": "launch",
             "mode": "auto",
             "program": "cmd/main.go",
-            "cwd": "/Users/admin/Documents/Обучение/GOLANG/PurpleSchool/blog-site"
+            "cwd": "/Users/admin/Documents/Education/GOLANG/PurpleSchool/blog-site"
         }
     ]
 }
