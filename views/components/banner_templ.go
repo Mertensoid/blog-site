@@ -37,7 +37,7 @@ func Banner(data BannerData) templ.Component {
 			templ_7745c5c3_Var1 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = BannerStyle(data.ImageURL).Render(ctx, templ_7745c5c3_Buffer)
+		templ_7745c5c3_Err = BannerStyle().Render(ctx, templ_7745c5c3_Buffer)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -54,33 +54,33 @@ func Banner(data BannerData) templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 2, "\"><p class=\"banner-title\">")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 2, "\"><div class=\"banner-text-bg\"><div class=\"banner-title\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
 		var templ_7745c5c3_Var3 string
 		templ_7745c5c3_Var3, templ_7745c5c3_Err = templ.JoinStringErrs(data.Title)
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `views/components/banner.templ`, Line: 14, Col: 43}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `views/components/banner.templ`, Line: 15, Col: 49}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var3))
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 3, "</p><p class=\"banner-text\">")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 3, "</div><div class=\"banner-text\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
 		var templ_7745c5c3_Var4 string
 		templ_7745c5c3_Var4, templ_7745c5c3_Err = templ.JoinStringErrs(data.Text)
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `views/components/banner.templ`, Line: 15, Col: 41}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `views/components/banner.templ`, Line: 16, Col: 47}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var4))
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 4, "</p></div>")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 4, "</div></div></div>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -88,7 +88,7 @@ func Banner(data BannerData) templ.Component {
 	})
 }
 
-func BannerStyle(pictureUrl string) templ.Component {
+func BannerStyle() templ.Component {
 	return templruntime.GeneratedTemplate(func(templ_7745c5c3_Input templruntime.GeneratedComponentInput) (templ_7745c5c3_Err error) {
 		templ_7745c5c3_W, ctx := templ_7745c5c3_Input.Writer, templ_7745c5c3_Input.Context
 		if templ_7745c5c3_CtxErr := ctx.Err(); templ_7745c5c3_CtxErr != nil {
@@ -109,7 +109,7 @@ func BannerStyle(pictureUrl string) templ.Component {
 			templ_7745c5c3_Var5 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 5, "<style>\n        .banner {\n            height: 400px;\n            align-content: end;\n            max-width: 300px;\n            margin: 10px 0 0 0;\n            background-color: var(--color-dark);\n            border-radius: 10px;\n            background-size: cover;\n        }\n        .banner-text {\n            background-color: rgba(255,255,255,0.75);\n            border-bottom-left-radius: 10px;\n            border-bottom-right-radius: 10px;\n            margin: 0 5px 5px 5px;\n            padding: 5px;\n            font-size: 12px;\n            color: var(--color-dark);\n            display: -webkit-box;\n            -webkit-line-clamp: 5; /* Ограничение в 3 строки */\n            -webkit-box-orient: vertical;\n            overflow: hidden;\n            text-overflow: ellipsis;\n        }\n        .banner-title {\n            background-color: rgba(255,255,255,0.75);\n            margin: 5px 5px 0 5px;\n            padding: 5px;\n            border-top-left-radius: 10px;\n            border-top-right-radius: 10px;\n            font-size: 18px;\n            font-weight: bold;\n        }\n    </style>")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 5, "<style>\n        .banner {\n            height: 400px;\n            align-content: end;\n            max-width: 300px;\n            margin: 10px 0 0 0;\n            background-color: var(--color-dark);\n            border-radius: 10px;\n            background-size: cover;\n        }\n        .banner-text-bg {\n            background-color: rgba(255,255,255,0.75);\n            margin: 5px;\n            padding: 5px;\n            border-radius: 10px;\n        }\n        .banner-title {\n            font-size: 18px;\n            font-weight: bold;\n        }\n        .banner-text {\n            font-size: 12px;\n            color: var(--color-dark);\n            display: -webkit-box;\n            -webkit-line-clamp: 5;\n            -webkit-box-orient: vertical;\n            overflow: hidden;\n            text-overflow: ellipsis;\n        }\n    </style>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
