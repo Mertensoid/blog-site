@@ -1,15 +1,54 @@
 package components
 
-templ Banner() {
-    @BannerStyle()
-    <div class="banner">
+import "fmt"
+
+type BannerData struct {
+    ImageURL string
+    Title string
+    Text string
+}
+
+templ Banner(data BannerData) {
+    @BannerStyle(data.ImageURL)
+    <div class="banner" style={ fmt.Sprintf("background-image: url(%s)", data.ImageURL) }>
+        <p class="banner-title">{data.Title}</p>
+        <p class="banner-text">{data.Text}</p>
     </div>
 }
 
-templ BannerStyle() {
+templ BannerStyle(pictureUrl string) {
     <style>
         .banner {
-            
+            height: 400px;
+            align-content: end;
+            max-width: 300px;
+            margin: 10px 0 0 0;
+            background-color: var(--color-dark);
+            border-radius: 10px;
+            background-size: cover;
+        }
+        .banner-text {
+            background-color: rgba(255,255,255,0.75);
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+            margin: 0 5px 5px 5px;
+            padding: 5px;
+            font-size: 12px;
+            color: var(--color-dark);
+            display: -webkit-box;
+            -webkit-line-clamp: 5; /* Ограничение в 3 строки */
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .banner-title {
+            background-color: rgba(255,255,255,0.75);
+            margin: 5px 5px 0 5px;
+            padding: 5px;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+            font-size: 18px;
+            font-weight: bold;
         }
     </style>    
 }
