@@ -18,7 +18,7 @@ type LogConfig struct {
 }
 
 func Init() {
-	if err := godotenv.Load("/Users/admin/Documents/Обучение/GOLANG/PurpleSchool/blog-site/.env"); err != nil {
+	if err := godotenv.Load("/Users/admin/Documents/Education/GOLANG/PurpleSchool/blog-site/.env"); err != nil {
 		log.Println(err.Error())
 		return
 	}
