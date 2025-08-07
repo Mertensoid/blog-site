@@ -7,13 +7,13 @@ templ Menu() {
     <div class="menu">
         <div class="menu-part">
             @components.PageName("Новости")
-            @components.MenuButton("Категории")
-            @components.MenuButton("Контакты")
+            @components.MenuButton("Категории", "/categories")
+            @components.MenuButton("Контакты", "/contacts")
         </div>
         <div class="menu-part">
             @components.Search()
-            @components.MenuButton("Вход")
-            @components.MenuButton("Регистрация")
+            @components.MenuButton("Вход", "/entrance")
+            @components.MenuButton("Регистрация", "/register")
         </div>
     </div>
 }

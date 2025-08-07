@@ -3,6 +3,7 @@ package main
 import (
 	"blog-site/config"
 	"blog-site/internal/home"
+	"blog-site/internal/register"
 	"blog-site/package/logger"
 
 	"github.com/gofiber/contrib/fiberzerolog"
@@ -24,6 +25,7 @@ func main() {
 	app.Static("/public", "./public")
 
 	home.NewHandler(app, logger)
+	register.NewHandler(app, logger)
 
 	app.Listen(":5001")
 }

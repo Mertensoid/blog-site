@@ -1,0 +1,22 @@
+package components
+
+templ RegTitle(subtitle string) {
+    @RegTitleStyle()
+    <div class="reg-title">
+        {subtitle}
+    </div>
+}
+
+templ RegTitleStyle() {
+    <style>
+    .reg-title {
+        padding: 0 10px;
+        align-self: flex-start;
+        font-size: 12px;
+        font-weight: bold;
+        color: var(--color-dark);
+        margin-bottom: 0px;
+        margin-top: 0px;
+    }
+    </style>
+}
