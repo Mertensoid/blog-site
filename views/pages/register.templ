@@ -1,0 +1,30 @@
+package pages
+
+import "blog-site/views/components"
+
+templ Register() {
+    @RegisterStyle()
+    <div class="register-page">
+        <div>Регистрация на сайте</div>
+        <form>
+            @components.RegTitle("Имя")
+            @components.RegField("name")
+            @components.RegTitle("E-mail")
+            @components.RegField("email")
+            @components.RegTitle("Пароль")
+            @components.RegField("password")
+        </form>
+    </div>
+    
+}
+
+templ RegisterStyle() {
+    <style>
+        .register-page {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: var(--color-white);
+        }
+    </style>
+}
