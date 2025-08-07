@@ -75,7 +75,7 @@ func RegFieldStyle() templ.Component {
 			templ_7745c5c3_Var3 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 3, "<style>\n    .reg-field {\n        height: 40px;\n        padding: 5px;\n        border-radius: 5px;\n        background-color: var(--color-light);\n        border: none;\n    }\n    </style>")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 3, "<style>\n    .reg-field {\n        height: 40px;\n        width: 400px;\n        padding: 5px;\n        margin: 5px 10px 20px 10px;\n        border-radius: 5px;\n        background-color: var(--color-light);\n        border: none;\n    }\n    </style>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

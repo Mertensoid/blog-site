@@ -43,11 +43,11 @@ func Menu() templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = components.MenuButton("Категории").Render(ctx, templ_7745c5c3_Buffer)
+		templ_7745c5c3_Err = components.MenuButton("Категории", "/categories").Render(ctx, templ_7745c5c3_Buffer)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = components.MenuButton("Контакты").Render(ctx, templ_7745c5c3_Buffer)
+		templ_7745c5c3_Err = components.MenuButton("Контакты", "/contacts").Render(ctx, templ_7745c5c3_Buffer)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -59,11 +59,11 @@ func Menu() templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = components.MenuButton("Вход").Render(ctx, templ_7745c5c3_Buffer)
+		templ_7745c5c3_Err = components.MenuButton("Вход", "/entrance").Render(ctx, templ_7745c5c3_Buffer)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = components.MenuButton("Регистрация").Render(ctx, templ_7745c5c3_Buffer)
+		templ_7745c5c3_Err = components.MenuButton("Регистрация", "/register").Render(ctx, templ_7745c5c3_Buffer)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

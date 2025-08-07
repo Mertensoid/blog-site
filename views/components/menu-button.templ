@@ -1,10 +1,10 @@
 package components
 
-templ MenuButton(text string) {
+templ MenuButton(text string, href string) {
     @MenuButtonStyle()
-    <div class="menu-button">
+    <a class="menu-button" href={templ.SafeURL(href)}>
         { text }
-    </div>
+    </a>
 }
 
 templ MenuButtonStyle() {
