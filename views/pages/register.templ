@@ -11,15 +11,17 @@ templ Register() {
     }) {
         <div class="register-page">
             <div class="reg-header">Регистрация на сайте</div>
-            <form>
+            <div class="register-result" id="register-result"></div>
+            <form class="input-grid" hx-post="/api/register" hx-trigger="submit" hx-target="#register-result" hx-swap="innerHTML swap:1s">
                 @components.RegTitle("Имя")
                 @components.RegField("name")
                 @components.RegTitle("E-mail")
                 @components.RegField("email")
                 @components.RegTitle("Пароль")
                 @components.RegField("password")
+                @components.RegButton()
             </form>
-            @components.RegButton()
+            
         </div>
     }
     
@@ -40,6 +42,15 @@ templ RegisterStyle() {
             font-size: 16px;
             font-weight: 700;
             margin-bottom: 20px;
+        }
+        .input-grid {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .register-result {
+            width: 100%;
         }
     </style>
 }
