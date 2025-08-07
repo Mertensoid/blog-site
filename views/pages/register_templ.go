@@ -48,7 +48,7 @@ func Register() templ.Component {
 				}()
 			}
 			ctx = templ.InitializeContext(ctx)
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<div class=\"register-page\"><div class=\"reg-header\">Регистрация на сайте</div><form class=\"input-grid\" hx-post=\"/vacancy\" hx-trigger=\"submit\" hx-target=\"#vacancy-result\" hx-swap=\"innerHTML swap:1s\">")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<div class=\"register-page\"><div class=\"reg-header\">Регистрация на сайте</div><div class=\"register-result\" id=\"register-result\"></div><form class=\"input-grid\" hx-post=\"/api/register\" hx-trigger=\"submit\" hx-target=\"#register-result\" hx-swap=\"innerHTML swap:1s\">")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
@@ -118,7 +118,7 @@ func RegisterStyle() templ.Component {
 			templ_7745c5c3_Var3 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 3, "<style>\n        .register-page {\n            height: 100%;\n            width: 100%;\n            display: flex;\n            flex-direction: column;\n            justify-content: center;\n            align-items: center;\n            background-color: var(--color-white);    \n        }\n        .reg-header {\n            font-size: 16px;\n            font-weight: 700;\n            margin-bottom: 20px;\n        }\n        .input-grid {\n            display: flex;\n            flex-direction: column;\n            justify-content: center;\n            align-items: center;\n        }\n    </style>")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 3, "<style>\n        .register-page {\n            height: 100%;\n            width: 100%;\n            display: flex;\n            flex-direction: column;\n            justify-content: center;\n            align-items: center;\n            background-color: var(--color-white);    \n        }\n        .reg-header {\n            font-size: 16px;\n            font-weight: 700;\n            margin-bottom: 20px;\n        }\n        .input-grid {\n            display: flex;\n            flex-direction: column;\n            justify-content: center;\n            align-items: center;\n        }\n        .register-result {\n            width: 400px;\n            margin-bottom: 20px;\n        }\n    </style>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

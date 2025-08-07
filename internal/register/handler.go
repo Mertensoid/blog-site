@@ -1,6 +1,10 @@
 package register
 
 import (
+	"blog-site/package/templadapter"
+	"blog-site/package/validator"
+	"blog-site/views/components"
+
 	"github.com/a-h/templ"
 	"github.com/gobuffalo/validate"
 	"github.com/gobuffalo/validate/validators"
@@ -18,7 +22,7 @@ func NewHandler(router fiber.Router, logger *zerolog.Logger) {
 		router: router,
 		logger: *logger,
 	}
-	h.router.Get("/api/register", h.register)
+	h.router.Post("/api/register", h.register)
 }
 
 func (h *RegisterHandler) register(c *fiber.Ctx) error {
@@ -47,6 +51,9 @@ func (h *RegisterHandler) register(c *fiber.Ctx) error {
 
 	var component templ.Component
 	if len(errors.Errors) > 0 {
-		component = component.Notification()
+		component = components.Notification(validator.FormatErrors(*errors), components.NotificationFail)
+	} else {
+		component = components.Notification("Успешная регистрация", components.NotificationSuccess)
 	}
+	return templadapter.Render(c, component)
 }
