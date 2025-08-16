@@ -39,3 +39,16 @@ func (r *UsersRepository) addUser(form RegisterData) error {
 	}
 	return nil
 }
+
+func (r *UsersRepository) GetUser(email string) User {
+	query := `SELECT * FROM users
+				WHERE email = $1`
+	fmt.Println(query)
+	user := User{}
+	err := r.dbpool.QueryRow(context.Background(), query,
+		email).Scan(&user.Id, &user.Email, &user.Password, &user.Name, &user.RegTime)
+	if err != nil {
+		r.logger.Error().Msg(err.Error())
+	}
+	return user
+}
