@@ -35,7 +35,7 @@ func (r *UsersRepository) addUser(form RegisterData) error {
 	}
 	_, err := r.dbpool.Exec(context.Background(), query, args)
 	if err != nil {
-		return fmt.Errorf("Невозможно создать вакансию: %w", err)
+		return fmt.Errorf("Невозможно создать пользователя: %w", err)
 	}
 	return nil
 }
