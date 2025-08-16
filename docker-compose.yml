@@ -1,0 +1,12 @@
+services:
+  postgres:
+    container_name: blog-site-container
+    image: postgres:17.5
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 123
+      PGDATA: /data/postgres
+    volumes:
+      - ./postgres-data:/data/postgres
+    ports:
+      - "5434:5432"
