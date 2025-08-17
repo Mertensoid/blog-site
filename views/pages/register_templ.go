@@ -48,7 +48,7 @@ func Register() templ.Component {
 				}()
 			}
 			ctx = templ.InitializeContext(ctx)
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<div class=\"register-page\"><div class=\"reg-header\">Регистрация на сайте</div><div class=\"register-result\" id=\"register-result\"></div><form class=\"input-grid\" hx-post=\"/api/register\" hx-trigger=\"submit\" hx-target=\"#register-result\" hx-swap=\"innerHTML swap:1s\">")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<div class=\"register-page\"><div class=\"reg-header\">Регистрация на сайте</div><div class=\"register-result\" id=\"register-result\"></div><form class=\"input-grid\" hx-post=\"/api/register\" hx-trigger=\"submit\" hx-target=\"#register-result\" hx-swap=\"innerHTML swap:1s\" hx-on::after-request=\"this.reset()\">")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}

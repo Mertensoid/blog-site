@@ -1,11 +1,11 @@
 package register
 
 import (
+	"blog-site/package/bcrypt"
 	"blog-site/package/templadapter"
 	"blog-site/package/validator"
 	"blog-site/views/components"
 
-	"github.com/a-h/templ"
 	"github.com/gobuffalo/validate"
 	"github.com/gobuffalo/validate/validators"
 	"github.com/gofiber/fiber/v2"
@@ -13,14 +13,21 @@ import (
 )
 
 type RegisterHandler struct {
-	router fiber.Router
-	logger zerolog.Logger
+	router     fiber.Router
+	logger     *zerolog.Logger
+	repository *UsersRepository
+	cryptograf *bcrypt.Crypto
 }
 
-func NewHandler(router fiber.Router, logger *zerolog.Logger) {
+func NewHandler(router fiber.Router,
+	logger *zerolog.Logger,
+	repository *UsersRepository,
+	cryptograf *bcrypt.Crypto) {
 	h := &RegisterHandler{
-		router: router,
-		logger: *logger,
+		router:     router,
+		logger:     logger,
+		repository: repository,
+		cryptograf: cryptograf,
 	}
 	h.router.Post("/api/register", h.register)
 }
@@ -49,11 +56,16 @@ func (h *RegisterHandler) register(c *fiber.Ctx) error {
 		},
 	)
 
-	var component templ.Component
 	if len(errors.Errors) > 0 {
-		component = components.Notification(validator.FormatErrors(*errors), components.NotificationFail)
-	} else {
-		component = components.Notification("Успешная регистрация", components.NotificationSuccess)
+		component := components.Notification(validator.FormatErrors(*errors), components.NotificationFail)
+		return templadapter.Render(c, component)
 	}
+	err := h.repository.addUser(form)
+	if err != nil {
+		h.logger.Error().Msg(err.Error())
+		component := components.Notification("Ошибка на сервере при попытке регистрации", components.NotificationFail)
+		return templadapter.Render(c, component)
+	}
+	component := components.Notification("Регистрация успешно выполнена", components.NotificationSuccess)
 	return templadapter.Render(c, component)
 }

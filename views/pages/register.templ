@@ -12,7 +12,13 @@ templ Register() {
         <div class="register-page">
             <div class="reg-header">Регистрация на сайте</div>
             <div class="register-result" id="register-result"></div>
-            <form class="input-grid" hx-post="/api/register" hx-trigger="submit" hx-target="#register-result" hx-swap="innerHTML swap:1s">
+            <form class="input-grid" 
+                hx-post="/api/register" 
+                hx-trigger="submit" 
+                hx-target="#register-result" 
+                hx-swap="innerHTML swap:1s"
+                hx-on::after-request="this.reset()"
+            >
                 @components.RegTitle("Имя")
                 @components.RegField("name")
                 @components.RegTitle("E-mail")
