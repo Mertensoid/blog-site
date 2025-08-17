@@ -1,6 +1,7 @@
 package register
 
 import (
+	"blog-site/package/bcrypt"
 	"blog-site/package/templadapter"
 	"blog-site/package/validator"
 	"blog-site/views/components"
@@ -15,13 +16,18 @@ type RegisterHandler struct {
 	router     fiber.Router
 	logger     *zerolog.Logger
 	repository *UsersRepository
+	cryptograf *bcrypt.Crypto
 }
 
-func NewHandler(router fiber.Router, logger *zerolog.Logger, repository *UsersRepository) {
+func NewHandler(router fiber.Router,
+	logger *zerolog.Logger,
+	repository *UsersRepository,
+	cryptograf *bcrypt.Crypto) {
 	h := &RegisterHandler{
 		router:     router,
 		logger:     logger,
 		repository: repository,
+		cryptograf: cryptograf,
 	}
 	h.router.Post("/api/register", h.register)
 }
