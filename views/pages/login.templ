@@ -9,17 +9,20 @@ templ Login() {
         Title: "Вход на сайт",
         MetaDescription: "Вход на сайт новостей обо всем",
     }) {
-        @layout.Header() {
-            
-        }
-        @widgets.LoginForm()
+        @layout.Header() 
+        <div class="login">
+            @widgets.LoginForm()
+        </div>
+        
     }
 }
 
 templ LoginStyle() {
     <style>
-        .login-page {
-
+        .login {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
     </style>
 }

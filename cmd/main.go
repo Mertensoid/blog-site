@@ -45,7 +45,7 @@ func main() {
 
 	repository := register.NewUsersRepository(dbpool, logger, cryptograf)
 
-	home.NewHandler(app, logger, repository, cryptograf)
+	home.NewHandler(app, logger, repository, cryptograf, store)
 	register.NewHandler(app, logger, repository, cryptograf, store)
 
 	app.Listen(":5001")

@@ -9,16 +9,21 @@ templ Register() {
         Title: "Регистрация на сайте",
         MetaDescription: "Регистрация на сайте новостей обо всем",
     }) {
-        @layout.Header() {
-            
-        }
-        @widgets.RegisterForm()
+        @layout.Header()
+        <div class="register">
+            @widgets.RegisterForm()
+        </div>
+        
     }
     
 }
 
 templ RegisterStyle() {
     <style>
-        
+        .register {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
     </style>
 }

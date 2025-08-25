@@ -12,7 +12,12 @@ templ Menu() {
         </div>
         <div class="menu-part">
             @components.Search()
-            @components.MenuButton("Вход", "/entrance")
+            {{ email := ctx.Value("email").(string) }}
+            if email == "" {
+                @components.MenuButton("Вход", "/entrance")
+            } else {
+                @components.MenuButton("Выйти", "/logout")
+            }
             @components.MenuButton("Регистрация", "/register")
         </div>
     </div>

@@ -34,7 +34,7 @@ func NewHandler(router fiber.Router,
 		cryptograf: cryptograf,
 		store:      store,
 	}
-	h.router.Post("/api/register", h.register)
+	h.router.Post("/register", h.register)
 	h.router.Post("/login", h.checkUser)
 }
 
@@ -53,7 +53,7 @@ func (h *RegisterHandler) register(c *fiber.Ctx) error {
 		&validators.EmailIsPresent{
 			Name:    "Email",
 			Field:   form.Email,
-			Message: "Email не задан",
+			Message: "Email не задан или не верный",
 		},
 		&validators.StringIsPresent{
 			Name:    "Password",

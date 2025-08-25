@@ -1,8 +1,8 @@
 package components
 
-templ RegButton() {
+templ RegButton(text string) {
     @RegButtonStyle()
-    <button class="reg-button">Зарегистрироваться</button>
+    <button class="reg-button">{text}</button>
 }
 
 templ RegButtonStyle() {

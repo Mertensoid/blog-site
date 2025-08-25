@@ -83,7 +83,7 @@ func RegisterForm() templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = components.RegButton().Render(ctx, templ_7745c5c3_Buffer)
+		templ_7745c5c3_Err = components.RegButton("Зарегистрироваться").Render(ctx, templ_7745c5c3_Buffer)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -116,7 +116,7 @@ func RegisterFormStyle() templ.Component {
 			templ_7745c5c3_Var2 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 7, "<style>\n        .register-widget {\n            display: flex;\n            flex-direction: column;\n            align-items: center;\n            gap: 12px;\n            margin: 80px 0;\n        }\n        .register-form {\n            display: flex;\n            flex-direction: column;\n            align-items: center;\n            gap: 30px;\n        }\n        .register-result {\n            width: 100%;\n        }\n    </style>")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 7, "<style>\n        .register-widget {\n            display: flex;\n            flex-direction: column;\n            align-items: center;\n            gap: 12px;\n            max-width: 400px;\n        }\n        .register-form {\n            display: flex;\n            flex-direction: column;\n            align-items: center;\n            gap: 30px;\n        }\n        .register-result {\n            width: 100%;\n        }\n    </style>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

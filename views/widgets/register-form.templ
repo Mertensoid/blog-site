@@ -26,7 +26,7 @@ templ RegisterForm() {
             @components.RegTitle("Пароль")
             @components.RegField("password", "password")
         </div>    
-            @components.RegButton()
+            @components.RegButton("Зарегистрироваться")
         </form>
     </div>
 }
@@ -38,7 +38,7 @@ templ RegisterFormStyle() {
             flex-direction: column;
             align-items: center;
             gap: 12px;
-            margin: 80px 0;
+            max-width: 400px;
         }
         .register-form {
             display: flex;
