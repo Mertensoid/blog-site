@@ -30,6 +30,7 @@ func NewHandler(router fiber.Router,
 		cryptograf: cryptograf,
 	}
 	h.router.Get("/", h.home)
+	h.router.Get("/entrance", h.login)
 	h.router.Get("/register", h.register)
 	h.router.Get("/error", h.error)
 	h.router.Get("/test", h.test)
@@ -37,6 +38,11 @@ func NewHandler(router fiber.Router,
 
 func (h *HomeHandler) home(c *fiber.Ctx) error {
 	component := views.Main()
+	return templadapter.Render(c, component)
+}
+
+func (h *HomeHandler) login(c *fiber.Ctx) error {
+	component := pages.Login()
 	return templadapter.Render(c, component)
 }
 

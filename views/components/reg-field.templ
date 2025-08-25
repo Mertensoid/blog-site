@@ -1,8 +1,8 @@
 package components
 
-templ RegField(name string) {
+templ RegField(name string, fieldType string) {
     @RegFieldStyle()
-    <input name={name} class="reg-field"/>
+    <input name={name} class="reg-field" type={fieldType}/>
     
 }
 
@@ -14,7 +14,7 @@ templ RegFieldStyle() {
         padding: 5px;
         margin: 5px 10px 20px 10px;
         border-radius: 5px;
-        background-color: var(--color-light);
+        background-color: lightgray;
         border: none;
     }
     </style>

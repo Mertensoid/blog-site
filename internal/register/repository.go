@@ -58,10 +58,9 @@ func (r *UsersRepository) GetUser(email string) User {
 	return user
 }
 
-func (r *UsersRepository) CheckUser(email, pass string) User {
+func (r *UsersRepository) checkUser(email, pass string) User {
 	query := `SELECT * FROM users
 				WHERE email = $1`
-	fmt.Println(query)
 	user := User{}
 	err := r.dbpool.QueryRow(context.Background(), query,
 		email).Scan(&user.Id, &user.Email, &user.Password, &user.Name, &user.RegTime)

@@ -62,7 +62,7 @@ func RegButtonStyle() templ.Component {
 			templ_7745c5c3_Var2 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 2, "<style>\n        .reg-button {\n            width: 300px;\n            height: 30px;\n            padding: 14px 28px;\n            margin-top: 20px;\n            background-color: #f80f55;\n            border: none;\n            border-radius: 5px;\n            font-size: 12px;\n            font-weight: bold;\n            color: var(--color-white);\n            display: flex;\n            justify-content: center;\n            align-items: center;\n            align-self: center;\n        }\n        .reg-button:hover {\n            background-color: #ca0b44;\n            cursor: pointer;\n        }\n    </style>")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 2, "<style>\n        .reg-button {\n            width: 300px;\n            height: 30px;\n            padding: 14px 28px;\n            margin-top: 20px;\n            background-color: #f80f55;\n            border: none;\n            border-radius: 5px;\n            font-size: 16px;\n            font-weight: bold;\n            color: var(--color-white);\n            display: flex;\n            justify-content: center;\n            align-items: center;\n            align-self: center;\n        }\n        .reg-button:hover {\n            background-color: #ca0b44;\n            cursor: pointer;\n        }\n    </style>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

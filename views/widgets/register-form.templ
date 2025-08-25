@@ -1,0 +1,54 @@
+package widgets
+
+import "blog-site/views/components"
+
+templ RegisterForm() {
+    @RegisterFormStyle()
+    <div class="register-widget" hx-ext="response-targets">
+        @components.Title("Регистрация на сайте")
+        <div class="register-result" id="register-result"></div>
+        <form class="register-form" 
+            hx-post="/register"  
+            hx-trigger="submit" 
+            hx-target="#register-result"
+            hx-target-error="#register-result"  
+            hx-swap="innerHTML"
+        >
+        <div>
+            @components.RegTitle("Имя")
+            @components.RegField("name", "")
+        </div>
+        <div>
+            @components.RegTitle("E-mail")
+            @components.RegField("email", "")
+        </div>
+        <div>
+            @components.RegTitle("Пароль")
+            @components.RegField("password", "password")
+        </div>    
+            @components.RegButton()
+        </form>
+    </div>
+}
+
+templ RegisterFormStyle() {
+    <style>
+        .register-widget {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+            margin: 80px 0;
+        }
+        .register-form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 30px;
+        }
+        .register-result {
+            width: 100%;
+        }
+    </style>
+}
+

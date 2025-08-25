@@ -5,6 +5,21 @@ import "blog-site/views/components"
 templ Content() {
     @ContentStyle()
     <div class="content">
+
+    <div>
+        @Categories([]Category{
+            Category{Name: "Еда", ImageSource: "/public/images/badge.svg"},
+            Category{Name: "Животные", ImageSource: "/public/images/search.svg"},
+            Category{Name: "Машины", ImageSource: "/public/images/search.svg"},
+            Category{Name: "Спорт", ImageSource: "/public/images/search.svg"},
+            Category{Name: "Музыка", ImageSource: "/public/images/search.svg"},
+            Category{Name: "Технологии", ImageSource: "/public/images/search.svg"},
+            Category{Name: "Прочее", ImageSource: "/public/images/search.svg"},
+        })
+    </div>
+        
+    
+    <div class="banners">
     @components.Banner(components.BannerData{
         ImageURL: "./public/images/food/2.png",
         Title: "Влияние фастфуда на организм человека",
@@ -34,7 +49,8 @@ templ Content() {
         `,
     })
     </div>
-    <div class="content">
+
+    <div class="cards">
     
     for i:=0; i<8; i++ {
         @components.Card(components.NewsLetter{ 
@@ -65,11 +81,24 @@ templ Content() {
         })
     }
     </div>
+    </div>
 }
 
 templ ContentStyle() {
     <style>
         .content {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            align-items: center;
+        }
+        .banners {
+            display: grid;
+            grid-template-columns: 25% 25% 25% 25%;
+            grid-auto-flow: dense;
+            justify-items: center;
+        }
+        .cards {
             display: grid;
             grid-template-columns: 25% 25% 25% 25%;
             grid-auto-flow: dense;

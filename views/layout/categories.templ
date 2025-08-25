@@ -13,7 +13,6 @@ templ Categories(cats []Category) {
         for _, val := range cats {
             @components.Category(val.Name)
         }
-
         <img class="arrow" src="/public/images/arrow.svg">
     </div>
 }
@@ -21,6 +20,7 @@ templ Categories(cats []Category) {
 templ CategoriesStyle() {
     <style>
         .categories {
+            width: 100%;
             height: 40px;
             padding-left: 5px;
             padding-right: 5px;
