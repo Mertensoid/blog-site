@@ -64,16 +64,16 @@ func (h *RegisterHandler) register(c *fiber.Ctx) error {
 
 	if len(errors.Errors) > 0 {
 		component := components.Notification(validator.FormatErrors(*errors), components.NotificationFail)
-		return templadapter.Render(c, component)
+		return templadapter.Render(c, component, http.StatusBadRequest)
 	}
 	err := h.repository.addUser(form)
 	if err != nil {
 		h.logger.Error().Msg(err.Error())
 		component := components.Notification("Ошибка на сервере при попытке регистрации", components.NotificationFail)
-		return templadapter.Render(c, component)
+		return templadapter.Render(c, component, http.StatusBadRequest)
 	}
 	component := components.Notification("Регистрация успешно выполнена", components.NotificationSuccess)
-	return templadapter.Render(c, component)
+	return templadapter.Render(c, component, http.StatusOK)
 }
 
 func (h *RegisterHandler) checkUser(c *fiber.Ctx) error {
@@ -85,17 +85,17 @@ func (h *RegisterHandler) checkUser(c *fiber.Ctx) error {
 		&validators.EmailIsPresent{
 			Name:    "Email",
 			Field:   form.Email,
-			Message: "Email не задан или не верный",
+			Message: "Email не введен или не верный",
 		},
 		&validators.StringIsPresent{
 			Name:    "Password",
 			Field:   form.Password,
-			Message: "Пароль не задан",
+			Message: "Пароль не введен",
 		},
 	)
 
 	if len(errors.Errors) > 0 {
-		component := components.Notification(validator.ParseErrors(*errors), components.NotificationFail)
+		component := components.Notification(validator.FormatErrors(*errors), components.NotificationFail)
 		return templadapter.Render(c, component, http.StatusBadRequest)
 	}
 	user, err := h.repository.checkUser(form)
@@ -116,6 +116,7 @@ func (h *RegisterHandler) checkUser(c *fiber.Ctx) error {
 		panic(err)
 	}
 	session.Set("email", user.Email)
+	session.Set("name", user.Name)
 	if err := session.Save(); err != nil {
 		panic(err)
 	}

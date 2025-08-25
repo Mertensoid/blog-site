@@ -10,6 +10,7 @@ require (
 	github.com/gofiber/fiber/v2 v2.52.9 // indirect
 	github.com/gofiber/fiber/v3 v3.0.0-beta.5 // indirect
 	github.com/gofiber/schema v1.6.0 // indirect
+	github.com/gofiber/storage/postgres/v3 v3.3.0 // indirect
 	github.com/gofiber/utils/v2 v2.0.0-beta.13 // indirect
 	github.com/gofrs/uuid v4.4.0+incompatible // indirect
 	github.com/google/uuid v1.6.0 // indirect

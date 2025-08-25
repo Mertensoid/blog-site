@@ -3,6 +3,7 @@ package register
 import (
 	"blog-site/package/bcrypt"
 	"context"
+	"errors"
 	"fmt"
 	"time"
 
@@ -58,22 +59,18 @@ func (r *UsersRepository) GetUser(email string) User {
 	return user
 }
 
-func (r *UsersRepository) checkUser(email, pass string) User {
-	query := `SELECT * FROM users
-				WHERE email = $1`
+func (r *UsersRepository) checkUser(form LoginForm) (User, error) {
+
+	query := `SELECT * FROM users WHERE email = $1`
 	user := User{}
-	err := r.dbpool.QueryRow(context.Background(), query,
-		email).Scan(&user.Id, &user.Email, &user.Password, &user.Name, &user.RegTime)
+	err := r.dbpool.QueryRow(context.Background(), query, form.Email).Scan(&user.Id,
+		&user.Email, &user.Password, &user.Name, &user.RegTime)
 	if err != nil {
 		r.logger.Error().Msg(err.Error())
+		return User{}, err
 	}
-	fmt.Println(user)
-	fmt.Println(pass)
-	fmt.Println(r.cryptograf.HashPassword(pass))
-	fmt.Println(user.Password)
-	if !r.cryptograf.CheckPasswordHash(pass, user.Password) {
-		r.logger.Info().Msg("Wrong password")
-		return User{}
+	if !r.cryptograf.CheckPasswordHash(form.Password, user.Password) {
+		return User{}, errors.New("Incorrect password")
 	}
-	return user
+	return user, nil
 }

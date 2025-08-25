@@ -6,7 +6,7 @@ import (
 	"blog-site/package/templadapter"
 	"blog-site/views"
 	"blog-site/views/pages"
-	"fmt"
+	"net/http"
 
 	"github.com/gofiber/fiber/v2"
 	"github.com/rs/zerolog"
@@ -33,32 +33,24 @@ func NewHandler(router fiber.Router,
 	h.router.Get("/entrance", h.login)
 	h.router.Get("/register", h.register)
 	h.router.Get("/error", h.error)
-	h.router.Get("/test", h.test)
 }
 
 func (h *HomeHandler) home(c *fiber.Ctx) error {
 	component := views.Main()
-	return templadapter.Render(c, component)
+	return templadapter.Render(c, component, http.StatusOK)
 }
 
 func (h *HomeHandler) login(c *fiber.Ctx) error {
 	component := pages.Login()
-	return templadapter.Render(c, component)
+	return templadapter.Render(c, component, http.StatusOK)
 }
 
 func (h *HomeHandler) register(c *fiber.Ctx) error {
 	component := pages.Register()
-	return templadapter.Render(c, component)
+	return templadapter.Render(c, component, http.StatusOK)
 }
 
 func (h *HomeHandler) error(c *fiber.Ctx) error {
 	h.logger.Info().Msg("Hello")
 	return c.SendString("Error")
-}
-
-func (h *HomeHandler) test(c *fiber.Ctx) error {
-	h.logger.Info().Msg("UserTest")
-	user := h.repository.CheckUser("mma@mma.mma", "12345")
-
-	return c.SendString(fmt.Sprintf("User %d %s %s %s %s", user.Id, user.Email, user.Password, user.Name, user.RegTime))
 }
