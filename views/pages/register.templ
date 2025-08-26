@@ -1,63 +1,29 @@
 package pages
 
-import "blog-site/views/components"
 import "blog-site/views/layout"
+import "blog-site/views/widgets"
 
 templ Register() {
     @RegisterStyle()
     @layout.Layout(layout.LayoutProps{
-        Title: "Title",
-        MetaDescription: "Meta description",
+        Title: "Регистрация на сайте",
+        MetaDescription: "Регистрация на сайте новостей обо всем",
     }) {
-        <div class="register-page">
-            <div class="reg-header">Регистрация на сайте</div>
-            <div class="register-result" id="register-result"></div>
-            <form class="input-grid" 
-                hx-post="/api/register" 
-                hx-trigger="submit" 
-                hx-target="#register-result" 
-                hx-swap="innerHTML swap:1s"
-                hx-on::after-request="this.reset()"
-            >
-                @components.RegTitle("Имя")
-                @components.RegField("name")
-                @components.RegTitle("E-mail")
-                @components.RegField("email")
-                @components.RegTitle("Пароль")
-                @components.RegField("password")
-                @components.RegButton()
-            </form>
-            
+        @layout.Header()
+        <div class="register">
+            @widgets.RegisterForm()
         </div>
+        
     }
     
 }
 
 templ RegisterStyle() {
     <style>
-        .register-page {
-            height: 100%;
-            width: 100%;
+        .register {
             display: flex;
             flex-direction: column;
-            justify-content: center;
             align-items: center;
-            background-color: var(--color-white);    
-        }
-        .reg-header {
-            font-size: 16px;
-            font-weight: 700;
-            margin-bottom: 20px;
-        }
-        .input-grid {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        }
-        .register-result {
-            width: 400px;
-            margin-bottom: 20px;
         }
     </style>
 }

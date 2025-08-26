@@ -79,7 +79,7 @@ func CategoriesStyle() templ.Component {
 			templ_7745c5c3_Var2 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 3, "<style>\n        .categories {\n            height: 40px;\n            padding-left: 5px;\n            padding-right: 5px;\n            color: var(--color-white);\n            display: flex;\n            flex-direction: row;\n            justify-content: space-between;\n            background-color: var(--color-light);\n            border-radius: 5px;\n        }\n        .arrow {\n            padding: 5px 5px 5px 40px;\n        }\n    </style>")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 3, "<style>\n        .categories {\n            width: 100%;\n            height: 40px;\n            padding-left: 5px;\n            padding-right: 5px;\n            color: var(--color-white);\n            display: flex;\n            flex-direction: row;\n            justify-content: space-between;\n            background-color: var(--color-light);\n            border-radius: 5px;\n        }\n        .arrow {\n            padding: 5px 5px 5px 40px;\n        }\n    </style>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

@@ -35,7 +35,23 @@ func Content() templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<div class=\"content\">")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<div class=\"content\"><div>")
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		templ_7745c5c3_Err = Categories([]Category{
+			Category{Name: "Еда", ImageSource: "/public/images/badge.svg"},
+			Category{Name: "Животные", ImageSource: "/public/images/search.svg"},
+			Category{Name: "Машины", ImageSource: "/public/images/search.svg"},
+			Category{Name: "Спорт", ImageSource: "/public/images/search.svg"},
+			Category{Name: "Музыка", ImageSource: "/public/images/search.svg"},
+			Category{Name: "Технологии", ImageSource: "/public/images/search.svg"},
+			Category{Name: "Прочее", ImageSource: "/public/images/search.svg"},
+		}).Render(ctx, templ_7745c5c3_Buffer)
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 2, "</div><div class=\"banners\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -73,7 +89,7 @@ func Content() templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 2, "</div><div class=\"content\">")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 3, "</div><div class=\"cards\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -108,7 +124,7 @@ func Content() templ.Component {
 				return templ_7745c5c3_Err
 			}
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 3, "</div>")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 4, "</div></div>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -137,7 +153,7 @@ func ContentStyle() templ.Component {
 			templ_7745c5c3_Var2 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 4, "<style>\n        .content {\n            display: grid;\n            grid-template-columns: 25% 25% 25% 25%;\n            grid-auto-flow: dense;\n            justify-items: center;\n        }\n    </style>")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 5, "<style>\n        .content {\n            display: flex;\n            flex-direction: column;\n            gap: 20px;\n            align-items: center;\n        }\n        .banners {\n            display: grid;\n            grid-template-columns: 25% 25% 25% 25%;\n            grid-auto-flow: dense;\n            justify-items: center;\n        }\n        .cards {\n            display: grid;\n            grid-template-columns: 25% 25% 25% 25%;\n            grid-auto-flow: dense;\n            justify-items: center;\n        }\n    </style>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

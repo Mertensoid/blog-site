@@ -7,9 +7,13 @@ import (
 	"blog-site/package/bcrypt"
 	"blog-site/package/database"
 	"blog-site/package/logger"
+	"blog-site/package/middleware"
+	"time"
 
 	"github.com/gofiber/contrib/fiberzerolog"
 	"github.com/gofiber/fiber/v2"
+	"github.com/gofiber/fiber/v2/middleware/session"
+	"github.com/gofiber/storage/postgres/v3"
 )
 
 func main() {
@@ -28,10 +32,21 @@ func main() {
 	dbpool := database.CreateDbPool(dbConf, logger)
 	defer dbpool.Close()
 
+	storage := postgres.New(postgres.Config{
+		DB:         dbpool,
+		Table:      "sessions",
+		Reset:      false,
+		GCInterval: 10 * time.Second,
+	})
+	store := session.New(session.Config{
+		Storage: storage,
+	})
+	app.Use(middleware.AuthMiddleware(store))
+
 	repository := register.NewUsersRepository(dbpool, logger, cryptograf)
 
-	home.NewHandler(app, logger, repository, cryptograf)
-	register.NewHandler(app, logger, repository, cryptograf)
+	home.NewHandler(app, logger, repository, cryptograf, store)
+	register.NewHandler(app, logger, repository, cryptograf, store)
 
 	app.Listen(":5001")
 }

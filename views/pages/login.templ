@@ -1,0 +1,28 @@
+package pages
+
+import "blog-site/views/layout"
+import "blog-site/views/widgets"
+
+templ Login() {
+    @LoginStyle()
+    @layout.Layout(layout.LayoutProps{
+        Title: "Вход на сайт",
+        MetaDescription: "Вход на сайт новостей обо всем",
+    }) {
+        @layout.Header() 
+        <div class="login">
+            @widgets.LoginForm()
+        </div>
+        
+    }
+}
+
+templ LoginStyle() {
+    <style>
+        .login {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+    </style>
+}

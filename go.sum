@@ -14,6 +14,8 @@ github.com/gofiber/fiber/v2 v2.52.9/go.mod h1:YEcBbO/FB+5M1IZNBP9FO3J9281zgPArei
 github.com/gofiber/fiber/v3 v3.0.0-beta.5/go.mod h1:XmI2Agulde26YcQrA2n8X499I1p98/zfCNbNObVUeP8=
 github.com/gofiber/schema v1.6.0 h1:rAgVDFwhndtC+hgV7Vu5ItQCn7eC2mBA4Eu1/ZTiEYY=
 github.com/gofiber/schema v1.6.0/go.mod h1:WNZWpQx8LlPSK7ZaX0OqOh+nQo/eW2OevsXs1VZfs/s=
+github.com/gofiber/storage/postgres/v3 v3.3.0 h1:aCXQifuYHk9YfWU3RJbR3wII4Ev2/L8/tAvOvFf2qeM=
+github.com/gofiber/storage/postgres/v3 v3.3.0/go.mod h1:OyNQORDQ8SwudBc1biXy4Jo2UPKvqk3caq9/6+15iLs=
 github.com/gofiber/utils/v2 v2.0.0-beta.13 h1:dlpbGFLveQ9OduL2UHw4dtu4lXE+Gb3bHMc+8Yxp/dk=
 github.com/gofiber/utils/v2 v2.0.0-beta.13/go.mod h1:qEZ175nSOkl5xciHmqxwNDsWzwiB39gB8RgU1d3U4mQ=
 github.com/gofrs/uuid v4.4.0+incompatible h1:3qXRTX8/NbyulANqlc0lchS1gqAVxRgsuW1YrTJupqA=

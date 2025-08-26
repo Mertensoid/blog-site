@@ -1,0 +1,28 @@
+package components
+
+templ Title(text string) {
+    @TitleStyle()
+    <div class="title">
+        <div class="header-dot"></div>
+        <div>{text}</div>
+    </div>
+}
+
+templ TitleStyle() {
+    <style>
+        .title {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+        .header-dot {
+            height: 10px;
+            width: 4px;
+            border-radius: 2px;
+            background-color: rgb(245, 15, 84);
+        }
+    </style>
+}

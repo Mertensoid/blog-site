@@ -1,6 +1,8 @@
 package layout
 
-import "blog-site/views/components"
+import (
+    "blog-site/views/components"
+)
 
 templ Menu() {
     @MenuStyle()
@@ -12,8 +14,14 @@ templ Menu() {
         </div>
         <div class="menu-part">
             @components.Search()
-            @components.MenuButton("Вход", "/entrance")
-            @components.MenuButton("Регистрация", "/register")
+            {{ email := ctx.Value("email").(string) }}
+            if email == "" {
+                @components.MenuButton("Вход", "/entrance")
+                @components.MenuButton("Регистрация", "/register")
+            } else {
+                {{ name := ctx.Value("name").(string) }}
+                @components.UserInfo(name, "/public/images/user1.jpg")
+            }
         </div>
     </div>
 }
@@ -27,9 +35,12 @@ templ MenuStyle() {
             padding-left: 20px;
             padding-right: 20px;
             margin: 20px;
+            align-items: center;
         }
         .menu-part {
             display: flex;
+            gap: 20px;
+            align-items: center;
         }
     </style>
 }

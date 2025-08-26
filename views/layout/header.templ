@@ -4,15 +4,6 @@ templ Header() {
     @HeaderStyle()
     <div class="header">
         @Menu()
-        @Categories([]Category{
-            Category{Name: "Еда", ImageSource: "/public/images/badge.svg"},
-            Category{Name: "Животные", ImageSource: "/public/images/search.svg"},
-            Category{Name: "Машины", ImageSource: "/public/images/search.svg"},
-            Category{Name: "Спорт", ImageSource: "/public/images/search.svg"},
-            Category{Name: "Музыка", ImageSource: "/public/images/search.svg"},
-            Category{Name: "Технологии", ImageSource: "/public/images/search.svg"},
-            Category{Name: "Прочее", ImageSource: "/public/images/search.svg"},
-        })
     </div>
 }
 
@@ -25,7 +16,6 @@ templ HeaderStyle() {
             padding: 5px;
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
         }
     </style>
 }
