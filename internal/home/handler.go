@@ -60,7 +60,8 @@ func (h *HomeHandler) logout(c *fiber.Ctx) error {
 	if err := session.Save(); err != nil {
 		panic(err)
 	}
-	return c.Redirect("/")
+	c.Response().Header.Add("Hx-Redirect", "/")
+	return c.Redirect("/", http.StatusOK)
 }
 
 func (h *HomeHandler) register(c *fiber.Ctx) error {

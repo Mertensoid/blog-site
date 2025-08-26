@@ -1,0 +1,29 @@
+package components
+
+templ UserInfo(name string, url string) {
+    @UserInfoStyle()
+    <div class="user-info" hx-get="/logout" hx-trigger="click">
+        <img src={templ.SafeURL(url)} class="user-info-image"/>
+        <div class="user-info-name">{name}</div>
+    </div>
+}
+
+templ UserInfoStyle() {
+    <style>
+        .user-info {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            height: 60px;
+        }
+        .user-info-image {
+            border-radius: 10px;
+            height: 60px;
+            width: 60px;
+            object-fit: cover;
+        }
+        .user-info-name {
+            font-size: 16px;
+        }
+    </style>
+}

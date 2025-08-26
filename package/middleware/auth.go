@@ -15,7 +15,12 @@ func AuthMiddleware(store *session.Store) fiber.Handler {
 		if email, ok := session.Get("email").(string); ok {
 			userEmail = email
 		}
+		userName := ""
+		if name, ok := session.Get("name").(string); ok {
+			userName = name
+		}
 		c.Locals("email", userEmail)
+		c.Locals("name", userName)
 		return c.Next()
 	}
 }
